@@ -1,0 +1,8 @@
+
+5 Reasons to choose GoLang :
+
+    Build Time
+    Fast Setup
+    Performance and Efficiency
+    Concurrency model
+    Static typing and compilation
