@@ -34,7 +34,7 @@ func checkIfAdmin(role string) (Permission string, err error) {
 }
 
 // Variadic Functions - Func with variable num of Arguments
-func sum(nums ...int) int {
+func sum(nums... int) int {
 	total := 0
 	for _, value := range nums {
 		total += value
@@ -73,8 +73,10 @@ func main() {
 	fmt.Println(checkIfAdmin("User"))  // output = Unauthorized <nil>
 
 	// Variadic Functions
-	fmt.Println("Variadic function : ", sum(1, 2, 3))
-	fmt.Println("Variadic function : ", sum(1, 2, 3, 5, 7, 8))
+	fmt.Println("Variadic function : ", sum(1, 2, 3)) //6
+	fmt.Println("Variadic function : ", sum(1, 2, 3, 4, 5, 6)) //21
+	s := []int{2 , 3 , 4 , 5 , 6} //Lets try with a slice using Spread operator
+	fmt.Println("Variadic function with slice : ", sum(s...)) // 20 
 
 	//Function as a Parameter
 	fmt.Println(applyOperation(2 ,3 ,add))
