@@ -1,0 +1,81 @@
+youtube : https://youtu.be/cmlKLz5S6G4?si=ZmLv3uFyODoz-cBA
+
+Channels
+---------
+
+-   Like waitgroups Channel are also synchronization
+    primitive
+-   While sync.WaitGroup is designed specifically to wait for a  collection of goroutines to finish, channels are more versatile, serving as both a communication mechanism and a, tool to synchronize execution between goroutines. 
+
+-   Follows Go's phil of "Sharing memory by communicating , instead
+    of communicating by sharing memory. 
+
+-   channel are typed (int , string etc etc)
+-   Created using make function
+
+
+Unidirectional Channels
+-----------------------
+
+-   Unidirectional channels are created using with " <- " operator
+-   When " <- " is in front it represents/indicates read-only channel
+     <-chan string
+-   When " <- " is after it indicates/represents write only channel
+     chan<- string
+
+     (Now see how to declare them in Concept.go)
+
+-	Unidirectional channels are used as function parameters.
+	You wont see Unidirectional channel very often , they are 
+	mainly used in function parameters
+
+
+Reading and Writing
+-----------------------
+-   The <- is also used to read from and write to channels
+-   To read you place the <- operator in the left and to write,
+    you place <- operator on the right
+-   Will get Error if reading from a write-only channel
+    and writing a readonly channel
+(Now go and see the concept.go //Reading and Writing section) 
+
+
+Closing a Channel
+------------------
+-   Channels are closed using the global function called close
+-   Reading from a closed channel is not an error 
+-   Reading from a closed channel returns two values , 1st is the
+    value it self and second is a bool indicating 
+-   syntax : close(channel_name)
+
+    (Go back to Concept.go and see how closing works and doesnt give any error)
+
+
+For Range Clause in Channels
+----------------------------
+
+-   The for range clause can be used to read from channel
+-   Ranging over channels returns a single value
+-   In go Closing a channel is also used to indicate
+    something has occurred
+
+(Not written code for this , as of now)
+
+
+NIL Channels
+------------
+-   Reading from NIL Channels gives Deadlock
+-   Closing NIL CHannels give Panic
+
+
+Channel OwnerShip
+-----------------
+
+-   Writer should be responsible for writing and closing the 
+    channel 
+-   Reader should be responsible for reading and handling the
+    closing of channel
+
+
+Buffered Channels
+-----------------

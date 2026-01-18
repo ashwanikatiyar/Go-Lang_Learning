@@ -1,0 +1,18 @@
+youtube : https://youtu.be/bIfe64K4iAQ?si=7OJpBgFAk6ynHYAI
+
+
+sync.WaitGroups in Go lang
+
+*   sync.WaitGroups is a synchronization primitive in go 
+    that is used to wait for collection of go routines to 
+    complete their execution
+
+*   It allows to coordinate the execution of multiple go
+    go routines and ensure that they all complete before 
+    continuing with the rest of the program     
+
+*   For eg , there is a party and arrangements (go routine)
+    are to be made. WG acts as a checklist which checks 
+    whether all the arrangements are done before starting
+    of party.
+

@@ -9,6 +9,14 @@ import (
 1️ What Is a Goroutine?
 A goroutine is a lightweight concurrent function managed by the Go runtime.
 
+!!!!!!!!!!!!!!!!!!!
+-Every process that runs in Concurrently in Golang is a Go routine
+-Go routines are light wait threads
+-Every program has atleast one go routine called the main function
+-When the main function is terminated then all the go routines
+will also get terminated , means all go routine work under main
+!!!!!!!!!!!!!!!!!!!
+
 
 2️ Your First Goroutine
 
@@ -51,5 +59,5 @@ func main() {
 		}(i)
 	}
 
-	time.Sleep(time.Second * 2)
+	time.Sleep(time.Second * 2) //Just for learning , we use Waitgroups for making the main function wait.
 }

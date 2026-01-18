@@ -1,0 +1,12 @@
+Concurrency :
+
+Eg  If we have only one CPU ,but two or more threads share the
+    CPU ,then its considered concurrent execution
+
+Parallelism :
+
+Eg  Three threads running on three CPUs simultaneously
+
+Go-routines are key feature of Go programming , that allows
+you to run functions concurrently or in parallel with other 
+parts of your program.
