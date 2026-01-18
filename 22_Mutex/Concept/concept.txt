@@ -1,0 +1,71 @@
+Mutex
+-----
+
+-   Mutexes are the other half of Go concurrency.
+-    If channels are about communication, mutexes are about protection.
+
+
+Why Do We Need a Mutex?
+------------------------
+The problem: data race
+Code :
+                count := 0
+
+                for i := 0; i < 1000; i++ {
+                    go func() {
+                        count++
+                    }()
+                }
+❌ Multiple goroutines modify the same variable
+❌ Final result is unpredictable
+❌ This is a data race
+
+
+
+
+What Is a Mutex (Plain English)
+----------------
+    A mutex is a lock.
+    -Only one goroutine can hold the lock
+    -Others wait
+    -Protects shared data
+
+
+Creating a Mutex
+------------------
+Code :    var mu sync.Mutex
+
+
+
+Locking and Unlocking (The Core)
+------------------------------
+Code :
+            mu.Lock()
+            count++
+            mu.Unlock()
+
+Rule #1
+Every Lock MUST have an Unlock
+
+
+
+defer mu.Unlock() (BEST PRACTICE)
+---------------------------------
+Code :
+            mu.Lock()
+            defer mu.Unlock()
+Why?
+-    Prevents forgetting Unlock
+-    Safe even on panic or early return
+
+
+Use mutex in this format 
+    Lock 
+    (some modification)
+    Unlock
+
+Dont write the complete logic between Lock and Unlock
+because then concurrency wont be there. So just wrap
+it around the part which is getting modified , since 
+mutex is used for solving the problem of Data Race
+condition
